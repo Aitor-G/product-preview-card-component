@@ -1,0 +1,39 @@
+@mixin rowCenter {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin rowAligned {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: baseline;
+}
+
+@mixin columnCenter {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin columnLeft {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: left;
+}
+
+@mixin onDesktop {
+  @media screen and (min-width: 577px) {
+    @content;
+  }
+}
+
+@mixin onMobile {
+  @media screen and (max-width: 576px) {
+    @content;
+  }
+}

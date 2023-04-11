@@ -1,0 +1,133 @@
+@use '../scss' as *;
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: $cream;
+  width: 100%;
+  height: 100vh;
+  @include columnCenter;
+}
+
+.component {
+  background-color: $verywhite;
+  border-radius: 10px;
+
+  @include onDesktop {
+    width: 600px;
+    height: 450px;
+    @include rowCenter;
+  }
+
+  @include onMobile {
+    width: 344px;
+    height: 612px;
+    @include columnCenter;
+  }
+}
+
+.img {
+  @include onDesktop {
+    width: 50%;
+    height: 100%;
+  }
+
+  @include onMobile {
+    width: 100%;
+    height: 40%;
+  }
+
+  &-contained {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+
+    @include onDesktop {
+      border-radius: 10px 0 0 10px;
+    }
+
+    @include onMobile {
+      border-radius: 10px 10px 0 0;
+    }
+  }
+}
+
+.product {
+  @include columnLeft;
+
+  @include onDesktop {
+    width: 50%;
+    height: 100%;
+    padding: 2rem;
+  }
+
+  @include onMobile {
+    height: 60%;
+    padding: 1.5rem;
+  }
+
+  &__type {
+    font-family: $montse;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    color: $grey;
+  }
+
+  &__name {
+    font-family: $fraun;
+    font-size: 2rem;
+  }
+
+  &__description {
+    font-family: $montse;
+    font-size: 0.9rem;
+    color: $grey;
+  }
+
+  &__price {
+    display: inline-flex;
+
+    &-current {
+      font-family: $fraun;
+      font-size: 2rem;
+      color: $darkgreen;
+    }
+
+    &-was {
+      font-family: $montse;
+      font-size: 0.9rem;
+      text-decoration: line-through;
+      color: $grey;
+      margin: auto 0 auto 1rem;
+    }
+  }
+
+  &__buy {
+    background-color: $darkgreen;
+    border-radius: 0.5rem;
+    padding: 0.8rem;
+    margin-top: 1rem;
+    text-decoration: none;
+    @include rowAligned;
+
+
+    &-text {
+      margin-left: 0.5rem;
+      font-family: $montse;
+      font-size: 0.9rem;
+      color: $verywhite;
+      font-weight: $semi;
+    }
+
+    &:hover {
+      background-color: darken($color: $darkgreen, $amount: 20%);
+    }
+  }
+}
